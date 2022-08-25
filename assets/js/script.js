@@ -1,10 +1,10 @@
 // variáveis para o header
-const today = document.getElementById('day');
-const currentMonth = document.getElementById('month');
-const currentYear = document.getElementById('year');
-const hours = document.getElementById('hours');
-const minutes = document.getElementById('minutes');
-const seconds = document.getElementById('seconds');
+const today = document.getElementById("day");
+const currentMonth = document.getElementById("month");
+const currentYear = document.getElementById("year");
+const hours = document.getElementById("hours");
+const minutes = document.getElementById("minutes");
+const seconds = document.getElementById("seconds");
 // variáveis para o tempo do cronometro
 let hoursTimer = 0;
 let minutesTimer = 0;
@@ -21,19 +21,19 @@ const relógio = setInterval(function time() {
   let sec = dateToday.getSeconds();
 
   if (hr < 10) {
-    hr = '0' + hr;
+    hr = "0" + hr;
   }
   if (min < 10) {
-    min = '0' + min;
+    min = "0" + min;
   }
   if (sec < 10) {
-    sec = '0' + sec;
+    sec = "0" + sec;
   }
   if (day < 10) {
-    day = '0' + day;
+    day = "0" + day;
   }
   if (month < 10) {
-    month = '0' + month;
+    month = "0" + month;
   }
 
   today.textContent = day;
@@ -46,17 +46,17 @@ const relógio = setInterval(function time() {
 
 function timer() {
   secondsTimer++;
-  document.getElementById('seconds-timer').innerText = secondsTimer;
-  document.getElementById('minutes-timer').innerText = minutesTimer;
-  document.getElementById('hours-timer').innerText = hoursTimer;
+  document.getElementById("seconds-timer").innerText = secondsTimer;
+  document.getElementById("minutes-timer").innerText = minutesTimer;
+  document.getElementById("hours-timer").innerText = hoursTimer;
   if (secondsTimer < 10) {
-    document.getElementById('seconds-timer').innerText = '0' + secondsTimer;
+    document.getElementById("seconds-timer").innerText = "0" + secondsTimer;
   }
   if (minutesTimer < 10) {
-    document.getElementById('minutes-timer').innerText = '0' + minutesTimer;
+    document.getElementById("minutes-timer").innerText = "0" + minutesTimer;
   }
   if (hoursTimer < 10) {
-    document.getElementById('hours-timer').innerText = '0' + hoursTimer;
+    document.getElementById("hours-timer").innerText = "0" + hoursTimer;
   }
   if (secondsTimer == 60) {
     minutesTimer++;
@@ -68,26 +68,98 @@ function timer() {
   }
 }
 
+const btStart = document.querySelector('#btStart')
 function start() {
   interval = setInterval(timer, 1000);
+  btStart.style.display = "none";
 }
+// function continueTimer(){
+//   interval = setInterval(timerDown, 1000);
+//   btContinue.style.display = "none";
+// }
 function pause() {
   clearInterval(interval);
+  btStart.style.display = "block";
 }
 function stopTimer() {
   clearInterval(interval);
-  document.getElementById('seconds-timer').innerText = '00';
-  document.getElementById('minutes-timer').innerText = '00';
-  document.getElementById('hours-timer').innerText = '00';
+  document.getElementById("seconds-timer").innerText = "00";
+  document.getElementById("minutes-timer").innerText = "00";
+  document.getElementById("hours-timer").innerText = "00";
   secondsTimer = 0;
   minutesTimer = 0;
   hoursTimer = 0;
+  btStart.style.display = "block";
 }
 
-const btCountdown = document.querySelector('btCountdown');
-btCountdown.addEventListener('click', abreModal);
-
-function abreModal() {
-  const modal = document.querySelector('#modalOverlay');
-  modal.style.display = flex;
+function timerDown(){
+  secondsTimer--;
+  document.getElementById("seconds-timer").innerText = secondsTimer;
+  document.getElementById("minutes-timer").innerText = minutesTimer;
+  document.getElementById("hours-timer").innerText = hoursTimer;
+  if (secondsTimer < 10) {
+    document.getElementById("seconds-timer").innerText = "0" + secondsTimer;
+  }
+  if (secondsTimer == 0 && minutesTimer != 0 && hoursTimer != 0) {
+    secondsTimer = 1;
+    // document.getElementById("seconds-timer").innerText = "00" + secondsTimer;
+  }
+  if (minutesTimer < 10) {
+    document.getElementById("minutes-timer").innerText = "0" + minutesTimer;
+  }
+  // if (minutesTimer == 0) {
+  //   document.getElementById("minutes-timer").innerText = "00" + minutesTimer;
+  // }
+  if (hoursTimer < 10) {
+    document.getElementById("hours-timer").innerText = "0" + hoursTimer;
+  }
+  // if (hoursTimer == 0) {
+  //   document.getElementById("hours-timer").innerText = "00" + hoursTimer;
+  // }
+  if (secondsTimer == 0 && minutesTimer > 0) {
+    minutesTimer--;
+    secondsTimer = 60;
+  }
+  if (minutesTimer == 0 && hoursTimer > 0) {
+    hoursTimer--;
+    minutesTimer = 60;
+  }
+  if (secondsTimer == 0 && minutesTimer == 0 && hoursTimer == 0){
+    clearInterval(interval);
+  }
 }
+
+const startTimer = document.querySelector('#btStartTimer');
+const btContinue = document.querySelector('#btContinue')
+
+startTimer.addEventListener('click', function(e){
+  e.preventDefault();
+  const inputSeconds = document.querySelector('#inputSeconds');
+  const valueSec = inputSeconds.value;
+  secondsTimer = valueSec;
+
+  const inputMinutes = document.querySelector('#inputMinutes');
+  const valueMin = inputMinutes.value;
+  minutesTimer = valueMin;
+
+  const inputHours = document.querySelector('#inputHours');
+  const valueH = inputHours.value;
+  hoursTimer = valueH;
+
+  interval = setInterval(timerDown, 1000);
+  btStart.style.display = "none";
+})
+
+const modal = document.querySelector("#modalOverlay");
+window.addEventListener("click", function (event) {
+  if (event.target.classList.contains("btCountdown")) {
+    modal.style.display = "flex";
+  }
+});
+
+window.addEventListener("click", function(event){
+  if (event.target.classList.contains("buttonModal")){
+    modal.style.display = "none";
+  }
+})
+

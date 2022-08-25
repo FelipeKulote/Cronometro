@@ -111,11 +111,20 @@ section#timer {
     background-color: rgba(205, 34, 34, 0.77);
 }
 
+#btContinue {
+    width: 9vw;
+    display: none;
+}
+
+#btContinue:hover {
+    background-color: rgba(74, 192, 74, 0.861);
+}
+
 #countdown {
     text-align: center;
 }
 
-#btCountdown {
+.btCountdown {
     text-align: center;
     padding: 1vw;
     font-size: 2vw;
@@ -125,7 +134,7 @@ section#timer {
     text-transform: uppercase;
 }
 
-#btCountdown:hover {
+.btCountdown:hover {
     cursor: pointer;
     background-color: black;
     color: white;
@@ -188,4 +197,12 @@ section#timer {
 
 #redButton:hover {
     background-color: rgba(205, 34, 34, 0.77);
+}
+
+#btStartTimer {
+    width: 7vw;
+    text-align: center;
+}
+#btStartTimer:hover {
+    background-color: rgba(74, 192, 74, 0.861);
 }

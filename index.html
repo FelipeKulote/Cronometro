@@ -47,30 +47,31 @@
     </section>
     <section id="buttons">
       <button onclick="start()" id="btStart" class="button-timer">Iniciar</button>
+      <button onclick="continueTimer()" id="btContinue" class="button-timer">Continuar</button>
       <button onclick="pause()" id="btPause" class="button-timer">Pausar</button>
       <button onclick="stopTimer()" id="btStop" class="button-timer">Parar</button>
     </section>
     <section id="countdown">
-      <button id="btCountdown">Temporizador</button>
+      <button class="btCountdown">Temporizador</button>
     </section>
     <section id="modalOverlay" class="modal-window">
       <div id="modal" class="modal-window">
         <div id="infoModal">
           <div id="modalHours" class="sizeTime">
-            <input class="inputValue" type="number" value="" />
+            <input id="inputHours" class="inputValue" type="number" value="" />
             <h2>Horas</h2>
           </div>
           <div id="modalMininutes" class="sizeTime">
-            <input class="inputValue" type="number" value="" />
+            <input id="inputMinutes" class="inputValue" type="number" value="" />
             <h2>Minutos</h2>
           </div>
           <div id="modalSeconds" class="sizeTime">
-            <input class="inputValue" type="number" value="" />
+            <input id="inputSeconds" class="inputValue" type="number" value="" />
             <h2>Segundos</h2>
           </div>
         </div>
         <div>
-          <button id="btStart" class="buttonModal">Iniciar</button>
+          <input id="btStartTimer" class="buttonModal" value="Iniciar">
           <button id="redButton" class="buttonModal">Cancelar</button>
         </div>
       </div>
