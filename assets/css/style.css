@@ -1,0 +1,191 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Slab:wght@100;200;300;400;500;700;800;900&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: Roboto Slab, Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+}
+
+body{
+    background: rgb(0,25,36);
+    background: radial-gradient(circle, rgba(0,25,36,0.9346113445378151) 6%, rgba(9,59,121,1) 45%, rgba(0,166,255,1) 100%);
+}
+
+header {
+    width: 100%;
+    margin: 1vw 0;
+    display: flex;
+    justify-content: space-around;
+    gap: 3vw;
+    text-align: center;
+}
+
+header ul.header {
+    color: white;
+    border: solid white;
+    border-radius: 5px;
+    padding: 0.5vw;
+    display: flex;
+    list-style: none;
+    font-size: 1.5vw;
+}
+
+#current-hour {
+    width: 7vw;
+}
+
+.text-header{
+    font-size: 0.8vw;
+    font-weight: 600;
+}
+
+h1 {
+    padding: 1vw;
+    font-size: 2vw;
+    text-align: center;
+    text-transform: uppercase;
+    color: white;
+}
+
+section#timer {
+    margin: 0 auto;
+    width: 60vw;
+    height: 20vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5vw;
+    box-shadow: 1px 10px 10px 0;
+}
+
+.numbers-timer {
+    width: 9.5vw;
+    padding: 0 0.8vw;
+    font-size: 7vw;
+    box-shadow: 0;
+    background-color: black;
+    color: white;
+    border-radius: 15px;
+}
+
+.text-timer {
+    padding-top: 1vw;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-size: 1.5vw;
+    font-weight: 500;
+}
+
+#buttons {
+    padding: 2vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2vw;   
+}
+
+.button-timer {
+    width: 6vw;
+    height: 3vw;
+    font-size: 1.3vw;
+    border-radius: 7px;
+    border: solid 3px;
+    transition: all 0.3s;
+    text-transform: uppercase;
+}
+
+.button-timer:hover {
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    border: white;
+}
+
+#btStart:hover{
+    background-color: rgba(74, 192, 74, 0.861);
+}
+
+#btStop:hover {
+    background-color: rgba(205, 34, 34, 0.77);
+}
+
+#countdown {
+    text-align: center;
+}
+
+#btCountdown {
+    text-align: center;
+    padding: 1vw;
+    font-size: 2vw;
+    border-radius: 7px;
+    border: solid 3px;
+    transition: all 0.3s;
+    text-transform: uppercase;
+}
+
+#btCountdown:hover {
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    border: white;
+}
+
+#modalOverlay {
+    background-color: #00000070;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    transition: all .5s;
+}
+
+#modal {
+    background-color: #121111f6;
+    width: 100%;
+    max-width: 50vw;
+    min-height: 20vw;
+    position: relative;
+    font-size: 1.5vw;
+    text-align: center;
+    border-radius: 15px;
+}
+
+#infoModal {
+    padding: 3vw;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+.inputValue {
+    border-radius: 10px;
+    width: 5vw;
+    height: 5vw;
+    font-size: 3vw;
+}
+
+.buttonModal {
+    padding: .5vw;
+    font-size: 1.3vw;
+    font-weight: 600;
+    border-radius: 7px;
+    border: solid 3px;
+    transition: all 0.3s;
+    text-transform: uppercase;
+}
+
+.buttonModal {
+    cursor: pointer;
+}
+
+#redButton:hover {
+    background-color: rgba(205, 34, 34, 0.77);
+}

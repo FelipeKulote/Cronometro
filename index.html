@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <title>Cronômetro</title>
+  </head>
+  <body>
+    <header>
+      <div>
+        <ul class="header">
+          <li id="day">00</li>
+          <span>/</span>
+          <li id="month">00</li>
+          <span>/</span>
+          <li id="year">0000</li>
+        </ul>
+        <span class="text-header">Data atual</span>
+      </div>
+      <div>
+        <ul id="current-hour" class="header">
+          <li id="hours">00</li>
+          <span class="dots">:</span>
+          <li id="minutes">00</li>
+          <span class="dots">:</span>
+          <li id="seconds">00</li>
+        </ul>
+        <span class="text-header">Hora atual</span>
+      </div>
+    </header>
+    <h1>Tempo</h1>
+    <section id="timer">
+      <div>
+        <h2 id="hours-timer" class="numbers-timer">00</h2>
+        <span class="text-timer">Horas</span>
+      </div>
+      <div>
+        <h2 id="minutes-timer" class="numbers-timer">00</h2>
+        <span class="text-timer">Minutos</span>
+      </div>
+      <div>
+        <h2 id="seconds-timer" class="numbers-timer">00</h2>
+        <span class="text-timer">Segundos</span>
+      </div>
+    </section>
+    <section id="buttons">
+      <button onclick="start()" id="btStart" class="button-timer">Iniciar</button>
+      <button onclick="pause()" id="btPause" class="button-timer">Pausar</button>
+      <button onclick="stopTimer()" id="btStop" class="button-timer">Parar</button>
+    </section>
+    <section id="countdown">
+      <button id="btCountdown">Temporizador</button>
+    </section>
+    <section id="modalOverlay" class="modal-window">
+      <div id="modal" class="modal-window">
+        <div id="infoModal">
+          <div id="modalHours" class="sizeTime">
+            <input class="inputValue" type="number" value="" />
+            <h2>Horas</h2>
+          </div>
+          <div id="modalMininutes" class="sizeTime">
+            <input class="inputValue" type="number" value="" />
+            <h2>Minutos</h2>
+          </div>
+          <div id="modalSeconds" class="sizeTime">
+            <input class="inputValue" type="number" value="" />
+            <h2>Segundos</h2>
+          </div>
+        </div>
+        <div>
+          <button id="btStart" class="buttonModal">Iniciar</button>
+          <button id="redButton" class="buttonModal">Cancelar</button>
+        </div>
+      </div>
+    </section>
+    <script src="./assets/js/script.js"></script>
+  </body>
+</html>
