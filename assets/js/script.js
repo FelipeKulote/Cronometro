@@ -80,6 +80,7 @@ function start() {
 function pause() {
   clearInterval(interval);
   btStart.style.display = "block";
+  btTemporizador.style.display = "flex";
 }
 function stopTimer() {
   clearInterval(interval);
@@ -90,6 +91,7 @@ function stopTimer() {
   minutesTimer = 0;
   hoursTimer = 0;
   btStart.style.display = "block";
+  btTemporizador.style.display = "flex";
 }
 
 function timerDown(){
@@ -100,22 +102,12 @@ function timerDown(){
   if (secondsTimer < 10) {
     document.getElementById("seconds-timer").innerText = "0" + secondsTimer;
   }
-  if (secondsTimer == 0 && minutesTimer != 0 && hoursTimer != 0) {
-    secondsTimer = 1;
-    // document.getElementById("seconds-timer").innerText = "00" + secondsTimer;
-  }
   if (minutesTimer < 10) {
     document.getElementById("minutes-timer").innerText = "0" + minutesTimer;
   }
-  // if (minutesTimer == 0) {
-  //   document.getElementById("minutes-timer").innerText = "00" + minutesTimer;
-  // }
   if (hoursTimer < 10) {
     document.getElementById("hours-timer").innerText = "0" + hoursTimer;
   }
-  // if (hoursTimer == 0) {
-  //   document.getElementById("hours-timer").innerText = "00" + hoursTimer;
-  // }
   if (secondsTimer == 0 && minutesTimer > 0) {
     minutesTimer--;
     secondsTimer = 60;
@@ -126,28 +118,42 @@ function timerDown(){
   }
   if (secondsTimer == 0 && minutesTimer == 0 && hoursTimer == 0){
     clearInterval(interval);
+    btTemporizador.style.display = "flex";
   }
 }
 
 const startTimer = document.querySelector('#btStartTimer');
-const btContinue = document.querySelector('#btContinue')
+const btTemporizador = document.querySelector('.btCountdown')
 
 startTimer.addEventListener('click', function(e){
   e.preventDefault();
   const inputSeconds = document.querySelector('#inputSeconds');
   const valueSec = inputSeconds.value;
+  if (valueSec == ''){
+    secondsTimer = 1;
+  } else {
   secondsTimer = valueSec;
+  }
 
   const inputMinutes = document.querySelector('#inputMinutes');
   const valueMin = inputMinutes.value;
+  if (valueMin == '') {
+    minutesTimer = '0' + valueMin;
+  } else {
   minutesTimer = valueMin;
+  }
 
   const inputHours = document.querySelector('#inputHours');
   const valueH = inputHours.value;
+  if (valueH == '') {
+    hoursTimer = '0' + valueH;
+  } else {
   hoursTimer = valueH;
+  }
 
   interval = setInterval(timerDown, 1000);
   btStart.style.display = "none";
+  btTemporizador.style.display = "none";
 })
 
 const modal = document.querySelector("#modalOverlay");

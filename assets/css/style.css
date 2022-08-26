@@ -125,6 +125,8 @@ section#timer {
 }
 
 .btCountdown {
+    margin: 0 auto;
+    display: flex;
     text-align: center;
     padding: 1vw;
     font-size: 2vw;
