@@ -56,7 +56,7 @@ section#timer {
     justify-content: center;
     align-items: center;
     gap: 5vw;
-    box-shadow: 1px 10px 10px 0;
+    box-shadow: 1px 10px 10px 4px;
 }
 
 .numbers-timer {
@@ -107,8 +107,20 @@ section#timer {
     background-color: rgba(74, 192, 74, 0.861);
 }
 
+#btContinue:hover {
+    background-color: rgba(74, 192, 74, 0.861);
+}
+
 #btStop:hover {
     background-color: rgba(205, 34, 34, 0.77);
+}
+
+#btStopTimer:hover {
+    background-color: rgba(205, 34, 34, 0.77);
+}
+
+#btPauseTimer {
+    display: none;
 }
 
 #btContinue {
@@ -116,8 +128,8 @@ section#timer {
     display: none;
 }
 
-#btContinue:hover {
-    background-color: rgba(74, 192, 74, 0.861);
+#btStopTimer {
+    display: none;
 }
 
 #countdown {

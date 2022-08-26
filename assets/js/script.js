@@ -58,29 +58,55 @@ function timer() {
   if (hoursTimer < 10) {
     document.getElementById("hours-timer").innerText = "0" + hoursTimer;
   }
-  if (secondsTimer == 60) {
+  if (secondsTimer == 59) {
     minutesTimer++;
-    secondsTimer = 0;
+    secondsTimer = -1;
   }
-  if (minutesTimer == 60) {
+  if (minutesTimer == 59) {
     hoursTimer++;
-    minutesTimer = 0;
+    minutesTimer = -1;
   }
 }
 
-const btStart = document.querySelector('#btStart')
+// Variáveis para os botões
+const btStart = document.querySelector('#btStart');
+const startTimer = document.querySelector('#btStartTimer');
+const btPause = document.querySelector('#btPause')
+const btPauseTimer = document.querySelector('#btPauseTimer');
+const btStop = document.querySelector('#btStop');
+const btStopTimer = document.querySelector('#btStopTimer');
+const btContinue = document.querySelector('#btContinue')
+const btTemporizador = document.querySelector('.btCountdown');
+
+// CONTAGEM NORMAL
 function start() {
   interval = setInterval(timer, 1000);
   btStart.style.display = "none";
 }
-// function continueTimer(){
-//   interval = setInterval(timerDown, 1000);
-//   btContinue.style.display = "none";
-// }
 function pause() {
   clearInterval(interval);
   btStart.style.display = "block";
-  btTemporizador.style.display = "flex";
+}
+function stopCount() {
+  clearInterval(interval);
+  document.getElementById("seconds-timer").innerText = "00";
+  document.getElementById("minutes-timer").innerText = "00";
+  document.getElementById("hours-timer").innerText = "00";
+  secondsTimer = 0;
+  minutesTimer = 0;
+  hoursTimer = 0;
+  btStart.style.display = "block";
+}
+// TEMPORIZADOR - CONTAGEM REGRESSIVA
+function pauseTimer() {
+  clearInterval(interval);
+  btPauseTimer.style.display = "none";
+  btContinue.style.display = "block";
+}
+function continueTimer() {
+  interval = setInterval(timerDown, 1000);
+  btContinue.style.display = "none";
+  btPauseTimer.style.display = "block";
 }
 function stopTimer() {
   clearInterval(interval);
@@ -90,9 +116,15 @@ function stopTimer() {
   secondsTimer = 0;
   minutesTimer = 0;
   hoursTimer = 0;
+  btStopTimer.style.display = "none";
+  btPauseTimer.style.display = "none";
+  btContinue.style.display = "none";
   btStart.style.display = "block";
+  btPause.style.display = "block";
+  btStop.style.display = "block";
   btTemporizador.style.display = "flex";
 }
+
 
 function timerDown(){
   secondsTimer--;
@@ -114,17 +146,18 @@ function timerDown(){
   }
   if (minutesTimer == 0 && hoursTimer > 0) {
     hoursTimer--;
-    minutesTimer = 60;
+    minutesTimer = 59;
   }
   if (secondsTimer == 0 && minutesTimer == 0 && hoursTimer == 0){
     clearInterval(interval);
     btTemporizador.style.display = "flex";
     btStart.style.display = "block";
+    btPause.style.display = "block";
+    btStop.style.display = "block";
+    btPauseTimer.style.display = "none";
+    btStopTimer.style.display = "none";
   }
 }
-
-const startTimer = document.querySelector('#btStartTimer');
-const btTemporizador = document.querySelector('.btCountdown')
 
 startTimer.addEventListener('click', function(e){
   e.preventDefault();
@@ -154,7 +187,11 @@ startTimer.addEventListener('click', function(e){
 
   interval = setInterval(timerDown, 1000);
   btStart.style.display = "none";
+  btPause.style.display = "none";
+  btStop.style.display = "none";
   btTemporizador.style.display = "none";
+  btPauseTimer.style.display = "block";
+  btStopTimer.style.display = "block";
 })
 
 const modal = document.querySelector("#modalOverlay");

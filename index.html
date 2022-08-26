@@ -49,9 +49,11 @@
     </section>
     <section id="buttons">
       <button onclick="start()" id="btStart" class="button-timer">Iniciar</button>
-      <button onclick="continueTimer()" id="btContinue" class="button-timer">Continuar</button>
+      <button onclick="pauseTimer()" id="btPauseTimer" class="button-timer">Pausar</button>
       <button onclick="pause()" id="btPause" class="button-timer">Pausar</button>
-      <button onclick="stopTimer()" id="btStop" class="button-timer">Parar</button>
+      <button onclick="continueTimer()" id="btContinue" class="button-timer">Continuar</button>
+      <button onclick="stopCount()" id="btStop" class="button-timer">Parar</button>
+      <button onclick="stopTimer()" id="btStopTimer" class="button-timer">Parar</button>
     </section>
     <section id="countdown">
       <button onclick="stopTimer()" class="btCountdown">Temporizador</button>
@@ -60,15 +62,15 @@
       <div id="modal" class="modal-window">
         <div id="infoModal">
           <div id="modalHours" class="sizeTime">
-            <input id="inputHours" class="inputValue" type="number" value="" />
+            <input id="inputHours" class="inputValue" type="number" value="" min="0"/>
             <h2>Horas</h2>
           </div>
           <div id="modalMininutes" class="sizeTime">
-            <input id="inputMinutes" class="inputValue" type="number" value="" />
+            <input id="inputMinutes" class="inputValue" type="number" value="" min="0"/>
             <h2>Minutos</h2>
           </div>
           <div id="modalSeconds" class="sizeTime">
-            <input id="inputSeconds" class="inputValue" type="number" value="" />
+            <input id="inputSeconds" class="inputValue" type="number" value="" min="0"/>
             <h2>Segundos</h2>
           </div>
         </div>
