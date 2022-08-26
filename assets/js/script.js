@@ -119,6 +119,7 @@ function timerDown(){
   if (secondsTimer == 0 && minutesTimer == 0 && hoursTimer == 0){
     clearInterval(interval);
     btTemporizador.style.display = "flex";
+    btStart.style.display = "block";
   }
 }
 
