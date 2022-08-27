@@ -220,3 +220,8 @@ section#timer {
 #btStartTimer:hover {
     background-color: rgba(74, 192, 74, 0.861);
 }
+
+footer {
+    margin-top: 1vw;
+    text-align: center;
+}
